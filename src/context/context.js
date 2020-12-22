@@ -9,12 +9,14 @@ export const Provider = ({children}) => {
     const [transactions, dispatch] = useReducer(contextReducer, initialState);
 
     //Action Creators
-    const deleteTransactions = (id) => (dispatch({ type: constants.DELETE_TRANSACTION, payload: id}));
-    const addTransactions = (transaction) => (dispatch({ type: constants.ADD_TRANSACTION, payload: transaction}));
+    const deleteTransaction = (id) => (dispatch({ type: constants.DELETE_TRANSACTION, payload: id}));
+    const addTransaction = (transaction) => (dispatch({ type: constants.ADD_TRANSACTION, payload: transaction}));
 
     return (
         <ExpenseTrackerContext.Provider value={{
-            deleteTransactions, addTransactions
+            deleteTransaction, 
+            addTransaction,
+            transactions,
         }}>
             {children}
         </ExpenseTrackerContext.Provider>
