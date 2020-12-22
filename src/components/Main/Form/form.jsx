@@ -2,7 +2,7 @@ import React from 'react'
 import { TextField, Typography, Grid, FormControl, InputLabel, Button, Select, MenuItem} from "@material-ui/core";
 import useStyles from './styles';
 
-const form = () => {
+const Form = () => {
     const classes = useStyles();
     return (
         <Grid container spacing={2}>
@@ -40,4 +40,4 @@ const form = () => {
     )
 }
 
-export default form;
+export default Form;
