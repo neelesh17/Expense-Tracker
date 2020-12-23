@@ -18,7 +18,7 @@ const App = () => {
     }
   }, [speechState])
   return (
-    <div style={{marginTop: "5%"}}>
+    <div style={{paddingTop: "5%"}}>
       <Grid className={classes.grid} container spacing={0} alignItems="center" justify="center" styles={{height: '100vh'}}>
         <Grid item xs={12} sm={4} className={classes.mobile}>
             <Details title="Income"/>
