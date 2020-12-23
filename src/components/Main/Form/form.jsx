@@ -6,6 +6,7 @@ import { useSpeechContext } from '@speechly/react-client';
 import { v4 as uuidv4 } from 'uuid';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
 import formatDate from '../../../utils/formatDate';
+import CustomizedSnackbar from '../../Snackbar/snackbar';
 
 const initialState = {
     amount: '',
@@ -16,6 +17,7 @@ const initialState = {
 const Form = () => {
     const classes = useStyles();
     const [formData, setFormData] = useState(initialState); 
+    const [open, setOpen] = useState(false);
     const handleChange = (e) => {
         e.preventDefault();
         const {name, value} = e.target;
@@ -33,6 +35,7 @@ const Form = () => {
             amount: Number(formData.amount),
             id: uuidv4()
         }
+        setOpen(true);
         addTransaction(transaction);
         setFormData(initialState);
     }
@@ -78,6 +81,7 @@ const Form = () => {
     const selectedCategories = formData.type === "Income" ? incomeCategories : expenseCategories;
     return (
         <Grid container spacing={2}>
+            <CustomizedSnackbar open={open} setOpen={setOpen}/>
             <Grid item xs={12}>
                 <Typography align="center" varient="subtitle2" gutterBottom>
                     {
