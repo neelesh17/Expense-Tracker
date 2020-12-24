@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { Provider } from './context/context';
 import { SpeechProvider } from  '@speechly/react-client';
+import * as serviceWorker from './serviceWorker';
 import './index.css';
 
 ReactDOM.render(
@@ -13,3 +14,4 @@ ReactDOM.render(
   </SpeechProvider>,
   document.getElementById('root')
 );
+serviceWorker.register();
